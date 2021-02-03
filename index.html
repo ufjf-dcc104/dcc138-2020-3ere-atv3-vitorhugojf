@@ -12,9 +12,9 @@
       const canvas = document.querySelector("canvas");
       const ctx = canvas.getContext("2d");
 
-      const skelly = new Image();
-      skelly.src = "assets/skelly.png";
-      skelly.addEventListener("load", terminouDeCarregar);
+      const darkElf = new Image();
+      darkElf.src = "assets/darkElf.png";
+      darkElf.addEventListener("load", terminouDeCarregar);
 
       function desenhaFundo() {
         ctx.fillStyle = "green";
@@ -63,7 +63,7 @@
           quadro = quadro > POSES[pose].qmax ? 0 : quadro + POSES[pose].pv * dt;
 
           ctx.drawImage(
-            skelly,
+            darkElf,
             //sx, sy, sw, sh
             Math.floor(quadro) * 64,
             pose * 64,
