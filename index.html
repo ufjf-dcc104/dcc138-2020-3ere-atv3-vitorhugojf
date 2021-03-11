@@ -12,41 +12,24 @@
       const canvas = document.querySelector("canvas");
       const ctx = canvas.getContext("2d");
 
-      const darkElf = new Image();
-      darkElf.src = "assets/darkElf.png";
-      darkElf.addEventListener("load", terminouDeCarregar);
+      const minotauro = new Image();
+      minotauro.src = "assets/minotauro.png";
+      minotauro.addEventListener("load", terminouDeCarregar);
 
       function desenhaFundo() {
-        ctx.fillStyle = "green";
+        ctx.fillStyle = "grey";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
       let l = 2;
       let c = 0;
 
-      let pose = 19;
+      let pose = 0;
       let quadro = 0;
       const POSES = [
-        { qmax: 6, pv: 9 },
-        { qmax: 6, pv: 9 },
-        { qmax: 6, pv: 9 },
-        { qmax: 6, pv: 9 },
-        { qmax: 7, pv: 9 },
-        { qmax: 7, pv: 9 },
-        { qmax: 7, pv: 9 },
-        { qmax: 7, pv: 9 },
         { qmax: 8, pv: 9 },
         { qmax: 8, pv: 9 },
         { qmax: 8, pv: 9 },
-        { qmax: 8, pv: 9 },
-        { qmax: 5, pv: 9 },
-        { qmax: 5, pv: 9 },
-        { qmax: 5, pv: 9 },
-        { qmax: 5, pv: 9 },
-        { qmax: 12, pv: 27 },
-        { qmax: 12, pv: 27 },
-        { qmax: 12, pv: 27 },
-        { qmax: 12, pv: 27 },
-        { qmax: 5, pv: 9 },
+        { qmax: 8, pv: 9 }
       ];
 
       function terminouDeCarregar() {
@@ -63,17 +46,17 @@
           quadro = quadro > POSES[pose].qmax ? 0 : quadro + POSES[pose].pv * dt;
 
           ctx.drawImage(
-            darkElf,
+            minotauro,
             //sx, sy, sw, sh
-            Math.floor(quadro) * 64,
-            pose * 64,
-            64,
-            64,
+            Math.floor(quadro) * 128,
+            pose * 128,
+            128,
+            128,
             //dx, dy, dw, dh
             0,
             0,
-            64,
-            64
+            128,
+            128
           );
 
           requestAnimationFrame(passo);
